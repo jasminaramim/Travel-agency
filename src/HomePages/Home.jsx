@@ -1,7 +1,8 @@
+import { Hero } from './Hero'
 import React from 'react'
 
 export const Home = () => {
   return (
-    <div>Home hi from homepage</div>
+    <div><Hero/></div>
   )
 }
