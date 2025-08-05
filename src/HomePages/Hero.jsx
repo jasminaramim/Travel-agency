@@ -1,33 +1,38 @@
 import { FaBed, FaCalendarAlt, FaHotel, FaMapMarkerAlt, FaPassport, FaPlane, FaSearch, FaUsers } from 'react-icons/fa';
 import React, { useState } from 'react';
 
+import NeonButton from '../GlobalButtons/NeonButton';
 import heroBg from '../assets/hero.jpg';
+import nature from '../assets/enjoy.png';
 
 export const Hero = () => {
   const [activeTab, setActiveTab] = useState('tour');
 
   return (
-    <div className="relative w-full min-h-[90vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${heroBg})` }}>
+    <div
+      className="relative w-full min-h-[90vh] flex items-center justify-center bg-cover bg-center bg-fixed"
+      style={{ backgroundImage: `url(${heroBg})` }}
+    >
       {/* Black overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl px-4 sm:px-6 md:px-10 flex flex-col md:flex-row items-start justify-between gap-10 py-12">
-        
         {/* Left content */}
         <div className="md:w-1/2 text-white">
-          <p className="inline-block bg-green-600 px-4 py-1 rounded-full font-semibold text-sm mb-4 shadow-md">
-            Enjoy Nature
-          </p>
+          <img src={nature} alt="Enjoy Nature" />
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
             Embrace The World’s Beauty<br />Day By Day
           </h1>
           <p className="text-sm md:text-base text-gray-200 mb-6">
             Welcome to Odyzaa, your trusted partner in unforgettable adventures with expertly crafted tours.
           </p>
-          <button className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-full shadow-md transition duration-300">
-            View Packages
-          </button>
+          {/* <button className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-full shadow-md transition duration-300">
+     
+          </button> */}
+          <NeonButton text="View Packages" link="https://example.com" />
+
+
         </div>
 
         {/* Right form */}
@@ -37,8 +42,8 @@ export const Hero = () => {
             {[
               { id: 'tour', label: 'Tour', icon: <FaPlane /> },
               { id: 'hotel', label: 'Hotel', icon: <FaHotel /> },
-              { id: 'visa', label: 'Visa', icon: <FaPassport /> }
-            ].map(tab => (
+              { id: 'visa', label: 'Visa', icon: <FaPassport /> },
+            ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
